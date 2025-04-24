@@ -1,7 +1,7 @@
 import inspect
 from types import UnionType
 
-from exceptions import (NodeAlreadyInitializedException,
+from die_engine.exceptions import (NodeAlreadyInitializedException,
                                                   NodeAlreadyHasContentException,
                                                   UninitializedNodeException,
                                                   SaveContentException,
@@ -11,7 +11,7 @@ from exceptions import (NodeAlreadyInitializedException,
                                                   GenerateContentException, WrongTypesException
                                                   )
 
-from command_handler import compare_args, compare_kwargs, set_command_params, compare_kwargs_types, \
+from die_engine.command_handler import compare_args, compare_kwargs, set_command_params, compare_kwargs_types, \
     compare_args_types
 
 

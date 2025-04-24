@@ -1,0 +1,1140 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> docs
+Rule 1     docs -> helplabel
+Rule 2     docs -> helplabel params
+Rule 3     docs -> params helplabel
+Rule 4     docs -> params
+Rule 5     docs -> helplabel optionals params
+Rule 6     docs -> params helplabel optionals
+Rule 7     docs -> optionals params helplabel
+Rule 8     docs -> helplabel params optionals
+Rule 9     docs -> params optionals helplabel
+Rule 10    docs -> optionals helplabel params
+Rule 11    docs -> optionals helplabel
+Rule 12    docs -> helplabel optionals
+Rule 13    docs -> optionals params
+Rule 14    docs -> params optionals
+Rule 15    docs -> optionals
+Rule 16    optionals -> optionals optional
+Rule 17    optionals -> optional
+Rule 18    optional -> openoptionallabel paramcontent closeoptionallabel
+Rule 19    openoptionallabel -> LEFTLABEL OPTIONLABEL RIGHTLABEL
+Rule 20    closeoptionallabel -> LEFTLABEL TMLABEL OPTIONLABEL RIGHTLABEL
+Rule 21    params -> params paramlabel
+Rule 22    params -> paramlabel
+Rule 23    paramlabel -> openparamlabel paramcontent closeparamlabel
+Rule 24    openparamlabel -> LEFTLABEL PARAMLABEL RIGHTLABEL
+Rule 25    closeparamlabel -> LEFTLABEL TMLABEL PARAMLABEL RIGHTLABEL
+Rule 26    paramcontent -> paramcontent paramcontentvalues
+Rule 27    paramcontent -> paramcontentvalues
+Rule 28    paramcontentvalues -> assigns
+Rule 29    paramcontentvalues -> helplabel
+Rule 30    paramcontentvalues -> choicelabel
+Rule 31    choicelabel -> openchoicelabel choicelabelcontent closechoicelabel
+Rule 32    openchoicelabel -> LEFTLABEL CHOICELABEL RIGHTLABEL
+Rule 33    closechoicelabel -> LEFTLABEL TMLABEL CHOICELABEL RIGHTLABEL
+Rule 34    choicelabelcontent -> choicelabelcontent choicelabelcontentvalues
+Rule 35    choicelabelcontent -> choicelabelcontentvalues
+Rule 36    choicelabelcontentvalues -> assigns
+Rule 37    choicelabelcontentvalues -> helplabel
+Rule 38    assigns -> assigns assign
+Rule 39    assigns -> assign
+Rule 40    assign -> LEFTASSIGNLABEL assignlabel SPLITASSIGNLABEL assignvalue RIGHTASSIGNLABEL
+Rule 41    assignlabel -> NAMEASSIGN
+Rule 42    assignlabel -> TYPEASSIGN
+Rule 43    assignlabel -> CHOICEASSIGNVALUE
+Rule 44    assignvalue -> FLOAT
+Rule 45    assignvalue -> INTEGER
+Rule 46    assignvalue -> WORD
+Rule 47    helplabel -> openhelplabel multitext closehelplabel
+Rule 48    openhelplabel -> LEFTLABEL HELPLABEL RIGHTLABEL
+Rule 49    closehelplabel -> LEFTLABEL TMLABEL HELPLABEL RIGHTLABEL
+Rule 50    multitext -> multitext TEXT
+Rule 51    multitext -> TEXT
+
+Terminals, with rules where they appear
+
+CHOICEASSIGNVALUE    : 43
+CHOICELABEL          : 32 33
+FLOAT                : 44
+HELPLABEL            : 48 49
+INTEGER              : 45
+LEFTASSIGNLABEL      : 40
+LEFTLABEL            : 19 20 24 25 32 33 48 49
+NAMEASSIGN           : 41
+OPTIONLABEL          : 19 20
+PARAMLABEL           : 24 25
+RIGHTASSIGNLABEL     : 40
+RIGHTLABEL           : 19 20 24 25 32 33 48 49
+SPLITASSIGNLABEL     : 40
+TEXT                 : 50 51
+TMLABEL              : 20 25 33 49
+TYPEASSIGN           : 42
+WORD                 : 46
+error                : 
+
+Nonterminals, with rules where they appear
+
+assign               : 38 39
+assignlabel          : 40
+assigns              : 28 36 38
+assignvalue          : 40
+choicelabel          : 30
+choicelabelcontent   : 31 34
+choicelabelcontentvalues : 34 35
+closechoicelabel     : 31
+closehelplabel       : 47
+closeoptionallabel   : 18
+closeparamlabel      : 23
+docs                 : 0
+helplabel            : 1 2 3 5 6 7 8 9 10 11 12 29 37
+multitext            : 47 50
+openchoicelabel      : 31
+openhelplabel        : 47
+openoptionallabel    : 18
+openparamlabel       : 23
+optional             : 16 17
+optionals            : 5 6 7 8 9 10 11 12 13 14 15 16
+paramcontent         : 18 23 26
+paramcontentvalues   : 26 27
+paramlabel           : 21 22
+params               : 2 3 4 5 6 7 8 9 10 13 14 21
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . docs
+    (1) docs -> . helplabel
+    (2) docs -> . helplabel params
+    (3) docs -> . params helplabel
+    (4) docs -> . params
+    (5) docs -> . helplabel optionals params
+    (6) docs -> . params helplabel optionals
+    (7) docs -> . optionals params helplabel
+    (8) docs -> . helplabel params optionals
+    (9) docs -> . params optionals helplabel
+    (10) docs -> . optionals helplabel params
+    (11) docs -> . optionals helplabel
+    (12) docs -> . helplabel optionals
+    (13) docs -> . optionals params
+    (14) docs -> . params optionals
+    (15) docs -> . optionals
+    (47) helplabel -> . openhelplabel multitext closehelplabel
+    (21) params -> . params paramlabel
+    (22) params -> . paramlabel
+    (16) optionals -> . optionals optional
+    (17) optionals -> . optional
+    (48) openhelplabel -> . LEFTLABEL HELPLABEL RIGHTLABEL
+    (23) paramlabel -> . openparamlabel paramcontent closeparamlabel
+    (18) optional -> . openoptionallabel paramcontent closeoptionallabel
+    (24) openparamlabel -> . LEFTLABEL PARAMLABEL RIGHTLABEL
+    (19) openoptionallabel -> . LEFTLABEL OPTIONLABEL RIGHTLABEL
+
+    LEFTLABEL       shift and go to state 8
+
+    docs                           shift and go to state 1
+    helplabel                      shift and go to state 2
+    params                         shift and go to state 3
+    optionals                      shift and go to state 4
+    openhelplabel                  shift and go to state 5
+    paramlabel                     shift and go to state 6
+    optional                       shift and go to state 7
+    openparamlabel                 shift and go to state 9
+    openoptionallabel              shift and go to state 10
+
+state 1
+
+    (0) S' -> docs .
+
+
+
+state 2
+
+    (1) docs -> helplabel .
+    (2) docs -> helplabel . params
+    (5) docs -> helplabel . optionals params
+    (8) docs -> helplabel . params optionals
+    (12) docs -> helplabel . optionals
+    (21) params -> . params paramlabel
+    (22) params -> . paramlabel
+    (16) optionals -> . optionals optional
+    (17) optionals -> . optional
+    (23) paramlabel -> . openparamlabel paramcontent closeparamlabel
+    (18) optional -> . openoptionallabel paramcontent closeoptionallabel
+    (24) openparamlabel -> . LEFTLABEL PARAMLABEL RIGHTLABEL
+    (19) openoptionallabel -> . LEFTLABEL OPTIONLABEL RIGHTLABEL
+
+    $end            reduce using rule 1 (docs -> helplabel .)
+    LEFTLABEL       shift and go to state 13
+
+    params                         shift and go to state 11
+    optionals                      shift and go to state 12
+    paramlabel                     shift and go to state 6
+    optional                       shift and go to state 7
+    openparamlabel                 shift and go to state 9
+    openoptionallabel              shift and go to state 10
+
+state 3
+
+    (3) docs -> params . helplabel
+    (4) docs -> params .
+    (6) docs -> params . helplabel optionals
+    (9) docs -> params . optionals helplabel
+    (14) docs -> params . optionals
+    (21) params -> params . paramlabel
+    (47) helplabel -> . openhelplabel multitext closehelplabel
+    (16) optionals -> . optionals optional
+    (17) optionals -> . optional
+    (23) paramlabel -> . openparamlabel paramcontent closeparamlabel
+    (48) openhelplabel -> . LEFTLABEL HELPLABEL RIGHTLABEL
+    (18) optional -> . openoptionallabel paramcontent closeoptionallabel
+    (24) openparamlabel -> . LEFTLABEL PARAMLABEL RIGHTLABEL
+    (19) openoptionallabel -> . LEFTLABEL OPTIONLABEL RIGHTLABEL
+
+    $end            reduce using rule 4 (docs -> params .)
+    LEFTLABEL       shift and go to state 8
+
+    helplabel                      shift and go to state 14
+    optionals                      shift and go to state 15
+    paramlabel                     shift and go to state 16
+    openhelplabel                  shift and go to state 5
+    optional                       shift and go to state 7
+    openparamlabel                 shift and go to state 9
+    openoptionallabel              shift and go to state 10
+
+state 4
+
+    (7) docs -> optionals . params helplabel
+    (10) docs -> optionals . helplabel params
+    (11) docs -> optionals . helplabel
+    (13) docs -> optionals . params
+    (15) docs -> optionals .
+    (16) optionals -> optionals . optional
+    (21) params -> . params paramlabel
+    (22) params -> . paramlabel
+    (47) helplabel -> . openhelplabel multitext closehelplabel
+    (18) optional -> . openoptionallabel paramcontent closeoptionallabel
+    (23) paramlabel -> . openparamlabel paramcontent closeparamlabel
+    (48) openhelplabel -> . LEFTLABEL HELPLABEL RIGHTLABEL
+    (19) openoptionallabel -> . LEFTLABEL OPTIONLABEL RIGHTLABEL
+    (24) openparamlabel -> . LEFTLABEL PARAMLABEL RIGHTLABEL
+
+    $end            reduce using rule 15 (docs -> optionals .)
+    LEFTLABEL       shift and go to state 20
+
+    params                         shift and go to state 17
+    helplabel                      shift and go to state 18
+    optional                       shift and go to state 19
+    paramlabel                     shift and go to state 6
+    openhelplabel                  shift and go to state 5
+    openoptionallabel              shift and go to state 10
+    openparamlabel                 shift and go to state 9
+
+state 5
+
+    (47) helplabel -> openhelplabel . multitext closehelplabel
+    (50) multitext -> . multitext TEXT
+    (51) multitext -> . TEXT
+
+    TEXT            shift and go to state 22
+
+    multitext                      shift and go to state 21
+
+state 6
+
+    (22) params -> paramlabel .
+
+    LEFTLABEL       reduce using rule 22 (params -> paramlabel .)
+    $end            reduce using rule 22 (params -> paramlabel .)
+
+
+state 7
+
+    (17) optionals -> optional .
+
+    LEFTLABEL       reduce using rule 17 (optionals -> optional .)
+    $end            reduce using rule 17 (optionals -> optional .)
+
+
+state 8
+
+    (48) openhelplabel -> LEFTLABEL . HELPLABEL RIGHTLABEL
+    (24) openparamlabel -> LEFTLABEL . PARAMLABEL RIGHTLABEL
+    (19) openoptionallabel -> LEFTLABEL . OPTIONLABEL RIGHTLABEL
+
+    HELPLABEL       shift and go to state 23
+    PARAMLABEL      shift and go to state 24
+    OPTIONLABEL     shift and go to state 25
+
+
+state 9
+
+    (23) paramlabel -> openparamlabel . paramcontent closeparamlabel
+    (26) paramcontent -> . paramcontent paramcontentvalues
+    (27) paramcontent -> . paramcontentvalues
+    (28) paramcontentvalues -> . assigns
+    (29) paramcontentvalues -> . helplabel
+    (30) paramcontentvalues -> . choicelabel
+    (38) assigns -> . assigns assign
+    (39) assigns -> . assign
+    (47) helplabel -> . openhelplabel multitext closehelplabel
+    (31) choicelabel -> . openchoicelabel choicelabelcontent closechoicelabel
+    (40) assign -> . LEFTASSIGNLABEL assignlabel SPLITASSIGNLABEL assignvalue RIGHTASSIGNLABEL
+    (48) openhelplabel -> . LEFTLABEL HELPLABEL RIGHTLABEL
+    (32) openchoicelabel -> . LEFTLABEL CHOICELABEL RIGHTLABEL
+
+    LEFTASSIGNLABEL shift and go to state 33
+    LEFTLABEL       shift and go to state 34
+
+    paramcontent                   shift and go to state 26
+    paramcontentvalues             shift and go to state 27
+    assigns                        shift and go to state 28
+    helplabel                      shift and go to state 29
+    choicelabel                    shift and go to state 30
+    assign                         shift and go to state 31
+    openhelplabel                  shift and go to state 5
+    openchoicelabel                shift and go to state 32
+
+state 10
+
+    (18) optional -> openoptionallabel . paramcontent closeoptionallabel
+    (26) paramcontent -> . paramcontent paramcontentvalues
+    (27) paramcontent -> . paramcontentvalues
+    (28) paramcontentvalues -> . assigns
+    (29) paramcontentvalues -> . helplabel
+    (30) paramcontentvalues -> . choicelabel
+    (38) assigns -> . assigns assign
+    (39) assigns -> . assign
+    (47) helplabel -> . openhelplabel multitext closehelplabel
+    (31) choicelabel -> . openchoicelabel choicelabelcontent closechoicelabel
+    (40) assign -> . LEFTASSIGNLABEL assignlabel SPLITASSIGNLABEL assignvalue RIGHTASSIGNLABEL
+    (48) openhelplabel -> . LEFTLABEL HELPLABEL RIGHTLABEL
+    (32) openchoicelabel -> . LEFTLABEL CHOICELABEL RIGHTLABEL
+
+    LEFTASSIGNLABEL shift and go to state 33
+    LEFTLABEL       shift and go to state 34
+
+    paramcontent                   shift and go to state 35
+    paramcontentvalues             shift and go to state 27
+    assigns                        shift and go to state 28
+    helplabel                      shift and go to state 29
+    choicelabel                    shift and go to state 30
+    assign                         shift and go to state 31
+    openhelplabel                  shift and go to state 5
+    openchoicelabel                shift and go to state 32
+
+state 11
+
+    (2) docs -> helplabel params .
+    (8) docs -> helplabel params . optionals
+    (21) params -> params . paramlabel
+    (16) optionals -> . optionals optional
+    (17) optionals -> . optional
+    (23) paramlabel -> . openparamlabel paramcontent closeparamlabel
+    (18) optional -> . openoptionallabel paramcontent closeoptionallabel
+    (24) openparamlabel -> . LEFTLABEL PARAMLABEL RIGHTLABEL
+    (19) openoptionallabel -> . LEFTLABEL OPTIONLABEL RIGHTLABEL
+
+    $end            reduce using rule 2 (docs -> helplabel params .)
+    LEFTLABEL       shift and go to state 13
+
+    optionals                      shift and go to state 36
+    paramlabel                     shift and go to state 16
+    optional                       shift and go to state 7
+    openparamlabel                 shift and go to state 9
+    openoptionallabel              shift and go to state 10
+
+state 12
+
+    (5) docs -> helplabel optionals . params
+    (12) docs -> helplabel optionals .
+    (16) optionals -> optionals . optional
+    (21) params -> . params paramlabel
+    (22) params -> . paramlabel
+    (18) optional -> . openoptionallabel paramcontent closeoptionallabel
+    (23) paramlabel -> . openparamlabel paramcontent closeparamlabel
+    (19) openoptionallabel -> . LEFTLABEL OPTIONLABEL RIGHTLABEL
+    (24) openparamlabel -> . LEFTLABEL PARAMLABEL RIGHTLABEL
+
+    $end            reduce using rule 12 (docs -> helplabel optionals .)
+    LEFTLABEL       shift and go to state 38
+
+    params                         shift and go to state 37
+    optional                       shift and go to state 19
+    paramlabel                     shift and go to state 6
+    openoptionallabel              shift and go to state 10
+    openparamlabel                 shift and go to state 9
+
+state 13
+
+    (24) openparamlabel -> LEFTLABEL . PARAMLABEL RIGHTLABEL
+    (19) openoptionallabel -> LEFTLABEL . OPTIONLABEL RIGHTLABEL
+
+    PARAMLABEL      shift and go to state 24
+    OPTIONLABEL     shift and go to state 25
+
+
+state 14
+
+    (3) docs -> params helplabel .
+    (6) docs -> params helplabel . optionals
+    (16) optionals -> . optionals optional
+    (17) optionals -> . optional
+    (18) optional -> . openoptionallabel paramcontent closeoptionallabel
+    (19) openoptionallabel -> . LEFTLABEL OPTIONLABEL RIGHTLABEL
+
+    $end            reduce using rule 3 (docs -> params helplabel .)
+    LEFTLABEL       shift and go to state 40
+
+    optionals                      shift and go to state 39
+    optional                       shift and go to state 7
+    openoptionallabel              shift and go to state 10
+
+state 15
+
+    (9) docs -> params optionals . helplabel
+    (14) docs -> params optionals .
+    (16) optionals -> optionals . optional
+    (47) helplabel -> . openhelplabel multitext closehelplabel
+    (18) optional -> . openoptionallabel paramcontent closeoptionallabel
+    (48) openhelplabel -> . LEFTLABEL HELPLABEL RIGHTLABEL
+    (19) openoptionallabel -> . LEFTLABEL OPTIONLABEL RIGHTLABEL
+
+    $end            reduce using rule 14 (docs -> params optionals .)
+    LEFTLABEL       shift and go to state 42
+
+    helplabel                      shift and go to state 41
+    optional                       shift and go to state 19
+    openhelplabel                  shift and go to state 5
+    openoptionallabel              shift and go to state 10
+
+state 16
+
+    (21) params -> params paramlabel .
+
+    LEFTLABEL       reduce using rule 21 (params -> params paramlabel .)
+    $end            reduce using rule 21 (params -> params paramlabel .)
+
+
+state 17
+
+    (7) docs -> optionals params . helplabel
+    (13) docs -> optionals params .
+    (21) params -> params . paramlabel
+    (47) helplabel -> . openhelplabel multitext closehelplabel
+    (23) paramlabel -> . openparamlabel paramcontent closeparamlabel
+    (48) openhelplabel -> . LEFTLABEL HELPLABEL RIGHTLABEL
+    (24) openparamlabel -> . LEFTLABEL PARAMLABEL RIGHTLABEL
+
+    $end            reduce using rule 13 (docs -> optionals params .)
+    LEFTLABEL       shift and go to state 44
+
+    helplabel                      shift and go to state 43
+    paramlabel                     shift and go to state 16
+    openhelplabel                  shift and go to state 5
+    openparamlabel                 shift and go to state 9
+
+state 18
+
+    (10) docs -> optionals helplabel . params
+    (11) docs -> optionals helplabel .
+    (21) params -> . params paramlabel
+    (22) params -> . paramlabel
+    (23) paramlabel -> . openparamlabel paramcontent closeparamlabel
+    (24) openparamlabel -> . LEFTLABEL PARAMLABEL RIGHTLABEL
+
+    $end            reduce using rule 11 (docs -> optionals helplabel .)
+    LEFTLABEL       shift and go to state 46
+
+    params                         shift and go to state 45
+    paramlabel                     shift and go to state 6
+    openparamlabel                 shift and go to state 9
+
+state 19
+
+    (16) optionals -> optionals optional .
+
+    LEFTLABEL       reduce using rule 16 (optionals -> optionals optional .)
+    $end            reduce using rule 16 (optionals -> optionals optional .)
+
+
+state 20
+
+    (48) openhelplabel -> LEFTLABEL . HELPLABEL RIGHTLABEL
+    (19) openoptionallabel -> LEFTLABEL . OPTIONLABEL RIGHTLABEL
+    (24) openparamlabel -> LEFTLABEL . PARAMLABEL RIGHTLABEL
+
+    HELPLABEL       shift and go to state 23
+    OPTIONLABEL     shift and go to state 25
+    PARAMLABEL      shift and go to state 24
+
+
+state 21
+
+    (47) helplabel -> openhelplabel multitext . closehelplabel
+    (50) multitext -> multitext . TEXT
+    (49) closehelplabel -> . LEFTLABEL TMLABEL HELPLABEL RIGHTLABEL
+
+    TEXT            shift and go to state 48
+    LEFTLABEL       shift and go to state 49
+
+    closehelplabel                 shift and go to state 47
+
+state 22
+
+    (51) multitext -> TEXT .
+
+    TEXT            reduce using rule 51 (multitext -> TEXT .)
+    LEFTLABEL       reduce using rule 51 (multitext -> TEXT .)
+
+
+state 23
+
+    (48) openhelplabel -> LEFTLABEL HELPLABEL . RIGHTLABEL
+
+    RIGHTLABEL      shift and go to state 50
+
+
+state 24
+
+    (24) openparamlabel -> LEFTLABEL PARAMLABEL . RIGHTLABEL
+
+    RIGHTLABEL      shift and go to state 51
+
+
+state 25
+
+    (19) openoptionallabel -> LEFTLABEL OPTIONLABEL . RIGHTLABEL
+
+    RIGHTLABEL      shift and go to state 52
+
+
+state 26
+
+    (23) paramlabel -> openparamlabel paramcontent . closeparamlabel
+    (26) paramcontent -> paramcontent . paramcontentvalues
+    (25) closeparamlabel -> . LEFTLABEL TMLABEL PARAMLABEL RIGHTLABEL
+    (28) paramcontentvalues -> . assigns
+    (29) paramcontentvalues -> . helplabel
+    (30) paramcontentvalues -> . choicelabel
+    (38) assigns -> . assigns assign
+    (39) assigns -> . assign
+    (47) helplabel -> . openhelplabel multitext closehelplabel
+    (31) choicelabel -> . openchoicelabel choicelabelcontent closechoicelabel
+    (40) assign -> . LEFTASSIGNLABEL assignlabel SPLITASSIGNLABEL assignvalue RIGHTASSIGNLABEL
+    (48) openhelplabel -> . LEFTLABEL HELPLABEL RIGHTLABEL
+    (32) openchoicelabel -> . LEFTLABEL CHOICELABEL RIGHTLABEL
+
+    LEFTLABEL       shift and go to state 55
+    LEFTASSIGNLABEL shift and go to state 33
+
+    closeparamlabel                shift and go to state 53
+    paramcontentvalues             shift and go to state 54
+    assigns                        shift and go to state 28
+    helplabel                      shift and go to state 29
+    choicelabel                    shift and go to state 30
+    assign                         shift and go to state 31
+    openhelplabel                  shift and go to state 5
+    openchoicelabel                shift and go to state 32
+
+state 27
+
+    (27) paramcontent -> paramcontentvalues .
+
+    LEFTLABEL       reduce using rule 27 (paramcontent -> paramcontentvalues .)
+    LEFTASSIGNLABEL reduce using rule 27 (paramcontent -> paramcontentvalues .)
+
+
+state 28
+
+    (28) paramcontentvalues -> assigns .
+    (38) assigns -> assigns . assign
+    (40) assign -> . LEFTASSIGNLABEL assignlabel SPLITASSIGNLABEL assignvalue RIGHTASSIGNLABEL
+
+  ! shift/reduce conflict for LEFTASSIGNLABEL resolved as shift
+    LEFTLABEL       reduce using rule 28 (paramcontentvalues -> assigns .)
+    LEFTASSIGNLABEL shift and go to state 33
+
+  ! LEFTASSIGNLABEL [ reduce using rule 28 (paramcontentvalues -> assigns .) ]
+
+    assign                         shift and go to state 56
+
+state 29
+
+    (29) paramcontentvalues -> helplabel .
+
+    LEFTLABEL       reduce using rule 29 (paramcontentvalues -> helplabel .)
+    LEFTASSIGNLABEL reduce using rule 29 (paramcontentvalues -> helplabel .)
+
+
+state 30
+
+    (30) paramcontentvalues -> choicelabel .
+
+    LEFTLABEL       reduce using rule 30 (paramcontentvalues -> choicelabel .)
+    LEFTASSIGNLABEL reduce using rule 30 (paramcontentvalues -> choicelabel .)
+
+
+state 31
+
+    (39) assigns -> assign .
+
+    LEFTASSIGNLABEL reduce using rule 39 (assigns -> assign .)
+    LEFTLABEL       reduce using rule 39 (assigns -> assign .)
+
+
+state 32
+
+    (31) choicelabel -> openchoicelabel . choicelabelcontent closechoicelabel
+    (34) choicelabelcontent -> . choicelabelcontent choicelabelcontentvalues
+    (35) choicelabelcontent -> . choicelabelcontentvalues
+    (36) choicelabelcontentvalues -> . assigns
+    (37) choicelabelcontentvalues -> . helplabel
+    (38) assigns -> . assigns assign
+    (39) assigns -> . assign
+    (47) helplabel -> . openhelplabel multitext closehelplabel
+    (40) assign -> . LEFTASSIGNLABEL assignlabel SPLITASSIGNLABEL assignvalue RIGHTASSIGNLABEL
+    (48) openhelplabel -> . LEFTLABEL HELPLABEL RIGHTLABEL
+
+    LEFTASSIGNLABEL shift and go to state 33
+    LEFTLABEL       shift and go to state 61
+
+    choicelabelcontent             shift and go to state 57
+    choicelabelcontentvalues       shift and go to state 58
+    assigns                        shift and go to state 59
+    helplabel                      shift and go to state 60
+    assign                         shift and go to state 31
+    openhelplabel                  shift and go to state 5
+
+state 33
+
+    (40) assign -> LEFTASSIGNLABEL . assignlabel SPLITASSIGNLABEL assignvalue RIGHTASSIGNLABEL
+    (41) assignlabel -> . NAMEASSIGN
+    (42) assignlabel -> . TYPEASSIGN
+    (43) assignlabel -> . CHOICEASSIGNVALUE
+
+    NAMEASSIGN      shift and go to state 63
+    TYPEASSIGN      shift and go to state 64
+    CHOICEASSIGNVALUE shift and go to state 65
+
+    assignlabel                    shift and go to state 62
+
+state 34
+
+    (48) openhelplabel -> LEFTLABEL . HELPLABEL RIGHTLABEL
+    (32) openchoicelabel -> LEFTLABEL . CHOICELABEL RIGHTLABEL
+
+    HELPLABEL       shift and go to state 23
+    CHOICELABEL     shift and go to state 66
+
+
+state 35
+
+    (18) optional -> openoptionallabel paramcontent . closeoptionallabel
+    (26) paramcontent -> paramcontent . paramcontentvalues
+    (20) closeoptionallabel -> . LEFTLABEL TMLABEL OPTIONLABEL RIGHTLABEL
+    (28) paramcontentvalues -> . assigns
+    (29) paramcontentvalues -> . helplabel
+    (30) paramcontentvalues -> . choicelabel
+    (38) assigns -> . assigns assign
+    (39) assigns -> . assign
+    (47) helplabel -> . openhelplabel multitext closehelplabel
+    (31) choicelabel -> . openchoicelabel choicelabelcontent closechoicelabel
+    (40) assign -> . LEFTASSIGNLABEL assignlabel SPLITASSIGNLABEL assignvalue RIGHTASSIGNLABEL
+    (48) openhelplabel -> . LEFTLABEL HELPLABEL RIGHTLABEL
+    (32) openchoicelabel -> . LEFTLABEL CHOICELABEL RIGHTLABEL
+
+    LEFTLABEL       shift and go to state 68
+    LEFTASSIGNLABEL shift and go to state 33
+
+    closeoptionallabel             shift and go to state 67
+    paramcontentvalues             shift and go to state 54
+    assigns                        shift and go to state 28
+    helplabel                      shift and go to state 29
+    choicelabel                    shift and go to state 30
+    assign                         shift and go to state 31
+    openhelplabel                  shift and go to state 5
+    openchoicelabel                shift and go to state 32
+
+state 36
+
+    (8) docs -> helplabel params optionals .
+    (16) optionals -> optionals . optional
+    (18) optional -> . openoptionallabel paramcontent closeoptionallabel
+    (19) openoptionallabel -> . LEFTLABEL OPTIONLABEL RIGHTLABEL
+
+    $end            reduce using rule 8 (docs -> helplabel params optionals .)
+    LEFTLABEL       shift and go to state 40
+
+    optional                       shift and go to state 19
+    openoptionallabel              shift and go to state 10
+
+state 37
+
+    (5) docs -> helplabel optionals params .
+    (21) params -> params . paramlabel
+    (23) paramlabel -> . openparamlabel paramcontent closeparamlabel
+    (24) openparamlabel -> . LEFTLABEL PARAMLABEL RIGHTLABEL
+
+    $end            reduce using rule 5 (docs -> helplabel optionals params .)
+    LEFTLABEL       shift and go to state 46
+
+    paramlabel                     shift and go to state 16
+    openparamlabel                 shift and go to state 9
+
+state 38
+
+    (19) openoptionallabel -> LEFTLABEL . OPTIONLABEL RIGHTLABEL
+    (24) openparamlabel -> LEFTLABEL . PARAMLABEL RIGHTLABEL
+
+    OPTIONLABEL     shift and go to state 25
+    PARAMLABEL      shift and go to state 24
+
+
+state 39
+
+    (6) docs -> params helplabel optionals .
+    (16) optionals -> optionals . optional
+    (18) optional -> . openoptionallabel paramcontent closeoptionallabel
+    (19) openoptionallabel -> . LEFTLABEL OPTIONLABEL RIGHTLABEL
+
+    $end            reduce using rule 6 (docs -> params helplabel optionals .)
+    LEFTLABEL       shift and go to state 40
+
+    optional                       shift and go to state 19
+    openoptionallabel              shift and go to state 10
+
+state 40
+
+    (19) openoptionallabel -> LEFTLABEL . OPTIONLABEL RIGHTLABEL
+
+    OPTIONLABEL     shift and go to state 25
+
+
+state 41
+
+    (9) docs -> params optionals helplabel .
+
+    $end            reduce using rule 9 (docs -> params optionals helplabel .)
+
+
+state 42
+
+    (48) openhelplabel -> LEFTLABEL . HELPLABEL RIGHTLABEL
+    (19) openoptionallabel -> LEFTLABEL . OPTIONLABEL RIGHTLABEL
+
+    HELPLABEL       shift and go to state 23
+    OPTIONLABEL     shift and go to state 25
+
+
+state 43
+
+    (7) docs -> optionals params helplabel .
+
+    $end            reduce using rule 7 (docs -> optionals params helplabel .)
+
+
+state 44
+
+    (48) openhelplabel -> LEFTLABEL . HELPLABEL RIGHTLABEL
+    (24) openparamlabel -> LEFTLABEL . PARAMLABEL RIGHTLABEL
+
+    HELPLABEL       shift and go to state 23
+    PARAMLABEL      shift and go to state 24
+
+
+state 45
+
+    (10) docs -> optionals helplabel params .
+    (21) params -> params . paramlabel
+    (23) paramlabel -> . openparamlabel paramcontent closeparamlabel
+    (24) openparamlabel -> . LEFTLABEL PARAMLABEL RIGHTLABEL
+
+    $end            reduce using rule 10 (docs -> optionals helplabel params .)
+    LEFTLABEL       shift and go to state 46
+
+    paramlabel                     shift and go to state 16
+    openparamlabel                 shift and go to state 9
+
+state 46
+
+    (24) openparamlabel -> LEFTLABEL . PARAMLABEL RIGHTLABEL
+
+    PARAMLABEL      shift and go to state 24
+
+
+state 47
+
+    (47) helplabel -> openhelplabel multitext closehelplabel .
+
+    LEFTLABEL       reduce using rule 47 (helplabel -> openhelplabel multitext closehelplabel .)
+    $end            reduce using rule 47 (helplabel -> openhelplabel multitext closehelplabel .)
+    LEFTASSIGNLABEL reduce using rule 47 (helplabel -> openhelplabel multitext closehelplabel .)
+
+
+state 48
+
+    (50) multitext -> multitext TEXT .
+
+    TEXT            reduce using rule 50 (multitext -> multitext TEXT .)
+    LEFTLABEL       reduce using rule 50 (multitext -> multitext TEXT .)
+
+
+state 49
+
+    (49) closehelplabel -> LEFTLABEL . TMLABEL HELPLABEL RIGHTLABEL
+
+    TMLABEL         shift and go to state 69
+
+
+state 50
+
+    (48) openhelplabel -> LEFTLABEL HELPLABEL RIGHTLABEL .
+
+    TEXT            reduce using rule 48 (openhelplabel -> LEFTLABEL HELPLABEL RIGHTLABEL .)
+
+
+state 51
+
+    (24) openparamlabel -> LEFTLABEL PARAMLABEL RIGHTLABEL .
+
+    LEFTASSIGNLABEL reduce using rule 24 (openparamlabel -> LEFTLABEL PARAMLABEL RIGHTLABEL .)
+    LEFTLABEL       reduce using rule 24 (openparamlabel -> LEFTLABEL PARAMLABEL RIGHTLABEL .)
+
+
+state 52
+
+    (19) openoptionallabel -> LEFTLABEL OPTIONLABEL RIGHTLABEL .
+
+    LEFTASSIGNLABEL reduce using rule 19 (openoptionallabel -> LEFTLABEL OPTIONLABEL RIGHTLABEL .)
+    LEFTLABEL       reduce using rule 19 (openoptionallabel -> LEFTLABEL OPTIONLABEL RIGHTLABEL .)
+
+
+state 53
+
+    (23) paramlabel -> openparamlabel paramcontent closeparamlabel .
+
+    LEFTLABEL       reduce using rule 23 (paramlabel -> openparamlabel paramcontent closeparamlabel .)
+    $end            reduce using rule 23 (paramlabel -> openparamlabel paramcontent closeparamlabel .)
+
+
+state 54
+
+    (26) paramcontent -> paramcontent paramcontentvalues .
+
+    LEFTLABEL       reduce using rule 26 (paramcontent -> paramcontent paramcontentvalues .)
+    LEFTASSIGNLABEL reduce using rule 26 (paramcontent -> paramcontent paramcontentvalues .)
+
+
+state 55
+
+    (25) closeparamlabel -> LEFTLABEL . TMLABEL PARAMLABEL RIGHTLABEL
+    (48) openhelplabel -> LEFTLABEL . HELPLABEL RIGHTLABEL
+    (32) openchoicelabel -> LEFTLABEL . CHOICELABEL RIGHTLABEL
+
+    TMLABEL         shift and go to state 70
+    HELPLABEL       shift and go to state 23
+    CHOICELABEL     shift and go to state 66
+
+
+state 56
+
+    (38) assigns -> assigns assign .
+
+    LEFTASSIGNLABEL reduce using rule 38 (assigns -> assigns assign .)
+    LEFTLABEL       reduce using rule 38 (assigns -> assigns assign .)
+
+
+state 57
+
+    (31) choicelabel -> openchoicelabel choicelabelcontent . closechoicelabel
+    (34) choicelabelcontent -> choicelabelcontent . choicelabelcontentvalues
+    (33) closechoicelabel -> . LEFTLABEL TMLABEL CHOICELABEL RIGHTLABEL
+    (36) choicelabelcontentvalues -> . assigns
+    (37) choicelabelcontentvalues -> . helplabel
+    (38) assigns -> . assigns assign
+    (39) assigns -> . assign
+    (47) helplabel -> . openhelplabel multitext closehelplabel
+    (40) assign -> . LEFTASSIGNLABEL assignlabel SPLITASSIGNLABEL assignvalue RIGHTASSIGNLABEL
+    (48) openhelplabel -> . LEFTLABEL HELPLABEL RIGHTLABEL
+
+    LEFTLABEL       shift and go to state 73
+    LEFTASSIGNLABEL shift and go to state 33
+
+    closechoicelabel               shift and go to state 71
+    choicelabelcontentvalues       shift and go to state 72
+    assigns                        shift and go to state 59
+    helplabel                      shift and go to state 60
+    assign                         shift and go to state 31
+    openhelplabel                  shift and go to state 5
+
+state 58
+
+    (35) choicelabelcontent -> choicelabelcontentvalues .
+
+    LEFTLABEL       reduce using rule 35 (choicelabelcontent -> choicelabelcontentvalues .)
+    LEFTASSIGNLABEL reduce using rule 35 (choicelabelcontent -> choicelabelcontentvalues .)
+
+
+state 59
+
+    (36) choicelabelcontentvalues -> assigns .
+    (38) assigns -> assigns . assign
+    (40) assign -> . LEFTASSIGNLABEL assignlabel SPLITASSIGNLABEL assignvalue RIGHTASSIGNLABEL
+
+  ! shift/reduce conflict for LEFTASSIGNLABEL resolved as shift
+    LEFTLABEL       reduce using rule 36 (choicelabelcontentvalues -> assigns .)
+    LEFTASSIGNLABEL shift and go to state 33
+
+  ! LEFTASSIGNLABEL [ reduce using rule 36 (choicelabelcontentvalues -> assigns .) ]
+
+    assign                         shift and go to state 56
+
+state 60
+
+    (37) choicelabelcontentvalues -> helplabel .
+
+    LEFTLABEL       reduce using rule 37 (choicelabelcontentvalues -> helplabel .)
+    LEFTASSIGNLABEL reduce using rule 37 (choicelabelcontentvalues -> helplabel .)
+
+
+state 61
+
+    (48) openhelplabel -> LEFTLABEL . HELPLABEL RIGHTLABEL
+
+    HELPLABEL       shift and go to state 23
+
+
+state 62
+
+    (40) assign -> LEFTASSIGNLABEL assignlabel . SPLITASSIGNLABEL assignvalue RIGHTASSIGNLABEL
+
+    SPLITASSIGNLABEL shift and go to state 74
+
+
+state 63
+
+    (41) assignlabel -> NAMEASSIGN .
+
+    SPLITASSIGNLABEL reduce using rule 41 (assignlabel -> NAMEASSIGN .)
+
+
+state 64
+
+    (42) assignlabel -> TYPEASSIGN .
+
+    SPLITASSIGNLABEL reduce using rule 42 (assignlabel -> TYPEASSIGN .)
+
+
+state 65
+
+    (43) assignlabel -> CHOICEASSIGNVALUE .
+
+    SPLITASSIGNLABEL reduce using rule 43 (assignlabel -> CHOICEASSIGNVALUE .)
+
+
+state 66
+
+    (32) openchoicelabel -> LEFTLABEL CHOICELABEL . RIGHTLABEL
+
+    RIGHTLABEL      shift and go to state 75
+
+
+state 67
+
+    (18) optional -> openoptionallabel paramcontent closeoptionallabel .
+
+    LEFTLABEL       reduce using rule 18 (optional -> openoptionallabel paramcontent closeoptionallabel .)
+    $end            reduce using rule 18 (optional -> openoptionallabel paramcontent closeoptionallabel .)
+
+
+state 68
+
+    (20) closeoptionallabel -> LEFTLABEL . TMLABEL OPTIONLABEL RIGHTLABEL
+    (48) openhelplabel -> LEFTLABEL . HELPLABEL RIGHTLABEL
+    (32) openchoicelabel -> LEFTLABEL . CHOICELABEL RIGHTLABEL
+
+    TMLABEL         shift and go to state 76
+    HELPLABEL       shift and go to state 23
+    CHOICELABEL     shift and go to state 66
+
+
+state 69
+
+    (49) closehelplabel -> LEFTLABEL TMLABEL . HELPLABEL RIGHTLABEL
+
+    HELPLABEL       shift and go to state 77
+
+
+state 70
+
+    (25) closeparamlabel -> LEFTLABEL TMLABEL . PARAMLABEL RIGHTLABEL
+
+    PARAMLABEL      shift and go to state 78
+
+
+state 71
+
+    (31) choicelabel -> openchoicelabel choicelabelcontent closechoicelabel .
+
+    LEFTLABEL       reduce using rule 31 (choicelabel -> openchoicelabel choicelabelcontent closechoicelabel .)
+    LEFTASSIGNLABEL reduce using rule 31 (choicelabel -> openchoicelabel choicelabelcontent closechoicelabel .)
+
+
+state 72
+
+    (34) choicelabelcontent -> choicelabelcontent choicelabelcontentvalues .
+
+    LEFTLABEL       reduce using rule 34 (choicelabelcontent -> choicelabelcontent choicelabelcontentvalues .)
+    LEFTASSIGNLABEL reduce using rule 34 (choicelabelcontent -> choicelabelcontent choicelabelcontentvalues .)
+
+
+state 73
+
+    (33) closechoicelabel -> LEFTLABEL . TMLABEL CHOICELABEL RIGHTLABEL
+    (48) openhelplabel -> LEFTLABEL . HELPLABEL RIGHTLABEL
+
+    TMLABEL         shift and go to state 79
+    HELPLABEL       shift and go to state 23
+
+
+state 74
+
+    (40) assign -> LEFTASSIGNLABEL assignlabel SPLITASSIGNLABEL . assignvalue RIGHTASSIGNLABEL
+    (44) assignvalue -> . FLOAT
+    (45) assignvalue -> . INTEGER
+    (46) assignvalue -> . WORD
+
+    FLOAT           shift and go to state 81
+    INTEGER         shift and go to state 82
+    WORD            shift and go to state 83
+
+    assignvalue                    shift and go to state 80
+
+state 75
+
+    (32) openchoicelabel -> LEFTLABEL CHOICELABEL RIGHTLABEL .
+
+    LEFTASSIGNLABEL reduce using rule 32 (openchoicelabel -> LEFTLABEL CHOICELABEL RIGHTLABEL .)
+    LEFTLABEL       reduce using rule 32 (openchoicelabel -> LEFTLABEL CHOICELABEL RIGHTLABEL .)
+
+
+state 76
+
+    (20) closeoptionallabel -> LEFTLABEL TMLABEL . OPTIONLABEL RIGHTLABEL
+
+    OPTIONLABEL     shift and go to state 84
+
+
+state 77
+
+    (49) closehelplabel -> LEFTLABEL TMLABEL HELPLABEL . RIGHTLABEL
+
+    RIGHTLABEL      shift and go to state 85
+
+
+state 78
+
+    (25) closeparamlabel -> LEFTLABEL TMLABEL PARAMLABEL . RIGHTLABEL
+
+    RIGHTLABEL      shift and go to state 86
+
+
+state 79
+
+    (33) closechoicelabel -> LEFTLABEL TMLABEL . CHOICELABEL RIGHTLABEL
+
+    CHOICELABEL     shift and go to state 87
+
+
+state 80
+
+    (40) assign -> LEFTASSIGNLABEL assignlabel SPLITASSIGNLABEL assignvalue . RIGHTASSIGNLABEL
+
+    RIGHTASSIGNLABEL shift and go to state 88
+
+
+state 81
+
+    (44) assignvalue -> FLOAT .
+
+    RIGHTASSIGNLABEL reduce using rule 44 (assignvalue -> FLOAT .)
+
+
+state 82
+
+    (45) assignvalue -> INTEGER .
+
+    RIGHTASSIGNLABEL reduce using rule 45 (assignvalue -> INTEGER .)
+
+
+state 83
+
+    (46) assignvalue -> WORD .
+
+    RIGHTASSIGNLABEL reduce using rule 46 (assignvalue -> WORD .)
+
+
+state 84
+
+    (20) closeoptionallabel -> LEFTLABEL TMLABEL OPTIONLABEL . RIGHTLABEL
+
+    RIGHTLABEL      shift and go to state 89
+
+
+state 85
+
+    (49) closehelplabel -> LEFTLABEL TMLABEL HELPLABEL RIGHTLABEL .
+
+    LEFTLABEL       reduce using rule 49 (closehelplabel -> LEFTLABEL TMLABEL HELPLABEL RIGHTLABEL .)
+    $end            reduce using rule 49 (closehelplabel -> LEFTLABEL TMLABEL HELPLABEL RIGHTLABEL .)
+    LEFTASSIGNLABEL reduce using rule 49 (closehelplabel -> LEFTLABEL TMLABEL HELPLABEL RIGHTLABEL .)
+
+
+state 86
+
+    (25) closeparamlabel -> LEFTLABEL TMLABEL PARAMLABEL RIGHTLABEL .
+
+    LEFTLABEL       reduce using rule 25 (closeparamlabel -> LEFTLABEL TMLABEL PARAMLABEL RIGHTLABEL .)
+    $end            reduce using rule 25 (closeparamlabel -> LEFTLABEL TMLABEL PARAMLABEL RIGHTLABEL .)
+
+
+state 87
+
+    (33) closechoicelabel -> LEFTLABEL TMLABEL CHOICELABEL . RIGHTLABEL
+
+    RIGHTLABEL      shift and go to state 90
+
+
+state 88
+
+    (40) assign -> LEFTASSIGNLABEL assignlabel SPLITASSIGNLABEL assignvalue RIGHTASSIGNLABEL .
+
+    LEFTASSIGNLABEL reduce using rule 40 (assign -> LEFTASSIGNLABEL assignlabel SPLITASSIGNLABEL assignvalue RIGHTASSIGNLABEL .)
+    LEFTLABEL       reduce using rule 40 (assign -> LEFTASSIGNLABEL assignlabel SPLITASSIGNLABEL assignvalue RIGHTASSIGNLABEL .)
+
+
+state 89
+
+    (20) closeoptionallabel -> LEFTLABEL TMLABEL OPTIONLABEL RIGHTLABEL .
+
+    LEFTLABEL       reduce using rule 20 (closeoptionallabel -> LEFTLABEL TMLABEL OPTIONLABEL RIGHTLABEL .)
+    $end            reduce using rule 20 (closeoptionallabel -> LEFTLABEL TMLABEL OPTIONLABEL RIGHTLABEL .)
+
+
+state 90
+
+    (33) closechoicelabel -> LEFTLABEL TMLABEL CHOICELABEL RIGHTLABEL .
+
+    LEFTLABEL       reduce using rule 33 (closechoicelabel -> LEFTLABEL TMLABEL CHOICELABEL RIGHTLABEL .)
+    LEFTASSIGNLABEL reduce using rule 33 (closechoicelabel -> LEFTLABEL TMLABEL CHOICELABEL RIGHTLABEL .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for LEFTASSIGNLABEL in state 28 resolved as shift
+WARNING: shift/reduce conflict for LEFTASSIGNLABEL in state 59 resolved as shift

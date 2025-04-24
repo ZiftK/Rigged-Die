@@ -1,12 +1,12 @@
 from abc import abstractmethod
 from data_engine.checks import dump_json_in_file, read_json_from_file
-from exceptions import (
+from die_engine.exceptions import (
     UnlinkingExceptionException,
     UninitializedNodeException)
 
-from command_handler import command
+from die_engine.command_handler import command
 
-from test_node_builder import TestNodeBuilder, persistent
+from die_engine.test_node_builder import TestNodeBuilder, persistent
 
 
 class TestNode(metaclass=TestNodeBuilder):
