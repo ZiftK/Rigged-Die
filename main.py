@@ -2,8 +2,10 @@ from die_engine.test_node import TestNode
 from die_engine.test_node_execute import TestNodeExecute
 from die_engine.command_handler import command
 from view.rich.rich_console import RichConsole
+from logging import getLogger
 
-view_console = RichConsole()
+logger = getLogger("die_engine")
+view_console = RichConsole(logger)
 
 class Root(TestNode):
     _prefix = ""
