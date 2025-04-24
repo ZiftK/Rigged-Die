@@ -1,7 +1,7 @@
 from ply import yacc
-from lex import tokens
-from exceptions import CommandSyntaxException
-from .types import CRange, IntervalTypes, CInterval
+from langs.commands.lex import tokens
+from langs.commands.exceptions import CommandSyntaxException
+from langs.commands.types import CRange, IntervalTypes, CInterval
 
 
 def p_sentence(p):

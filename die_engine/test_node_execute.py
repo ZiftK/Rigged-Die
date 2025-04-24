@@ -5,20 +5,16 @@ from typing import Type
 
 import rich
 import rich.text
-import rich.tree
-import rich.console
-import rich.logging
 import os
 
-from command_handler import command, collect_commands
-from interaction_graph import IGraph
-from test_node import TestNode
-from exceptions import CommandSyntaxException
+from die_engine.command_handler import command, collect_commands
+from die_engine.interaction_graph import IGraph
+from die_engine.test_node import TestNode
 from langs.parse_handler import command_parse
 
 from view.abstract.abs_console import AbsConsole
 
-from exceptions import (UninitializedNodeException,
+from die_engine.exceptions import (UninitializedNodeException,
                                                   NodeAlreadyInitializedException,
                                                   NodeAlreadyHasContentException,
                                                   SaveContentException,

@@ -1,6 +1,6 @@
 from ply import lex
 
-from exceptions import CommandSyntaxException
+from langs.commands.exceptions import CommandSyntaxException
 
 tokens = [
     "VNAME",

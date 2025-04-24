@@ -1,10 +1,6 @@
-from collections import deque
 
-import re
 
 from ply import lex
-
-from enum import Enum
 
 
 def delete_duplicate_ws(string: str):

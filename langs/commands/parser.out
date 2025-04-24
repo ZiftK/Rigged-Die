@@ -1,0 +1,621 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    MINUS
+
+Grammar
+
+Rule 0     S' -> sentence
+Rule 1     sentence -> VNAME
+Rule 2     sentence -> VNAME args
+Rule 3     sentence -> VNAME kwargs
+Rule 4     sentence -> VNAME args kwargs
+Rule 5     kwargs -> kwargs kwarg
+Rule 6     kwargs -> kwarg
+Rule 7     kwarg -> kwflag
+Rule 8     kwarg -> kwflag arg
+Rule 9     kwflag -> KWSIGN VNAME
+Rule 10    args -> args arg
+Rule 11    args -> arg
+Rule 12    arg -> STRING
+Rule 13    arg -> number
+Rule 14    arg -> crange
+Rule 15    arg -> rinterval
+Rule 16    arg -> grinterval
+Rule 17    crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE
+Rule 18    crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE
+Rule 19    crange -> OPENRANGE number GROUPSPLITTER number CLOSERANGE
+Rule 20    grinterval -> GOPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL
+Rule 21    rinterval -> OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL
+Rule 22    number -> INTEGER
+Rule 23    number -> FLOAT
+
+Terminals, with rules where they appear
+
+CLOSEINTERVAL        : 20 21
+CLOSERANGE           : 17 18 19
+FLOAT                : 23
+GOPENINTERVAL        : 20
+GROUPSPLITTER        : 17 17 18 18 19 20 21
+INTEGER              : 22
+KWSIGN               : 9
+MINUS                : 
+OPENINTERVAL         : 21
+OPENRANGE            : 17 18 19
+STRING               : 12
+VNAME                : 1 2 3 4 9
+error                : 
+
+Nonterminals, with rules where they appear
+
+arg                  : 8 10 11
+args                 : 2 4 10
+crange               : 14
+grinterval           : 16
+kwarg                : 5 6
+kwargs               : 3 4 5
+kwflag               : 7 8
+number               : 13 17 17 18 18 18 19 19 20 20 21 21
+rinterval            : 15 17
+sentence             : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . sentence
+    (1) sentence -> . VNAME
+    (2) sentence -> . VNAME args
+    (3) sentence -> . VNAME kwargs
+    (4) sentence -> . VNAME args kwargs
+
+    VNAME           shift and go to state 2
+
+    sentence                       shift and go to state 1
+
+state 1
+
+    (0) S' -> sentence .
+
+
+
+state 2
+
+    (1) sentence -> VNAME .
+    (2) sentence -> VNAME . args
+    (3) sentence -> VNAME . kwargs
+    (4) sentence -> VNAME . args kwargs
+    (10) args -> . args arg
+    (11) args -> . arg
+    (5) kwargs -> . kwargs kwarg
+    (6) kwargs -> . kwarg
+    (12) arg -> . STRING
+    (13) arg -> . number
+    (14) arg -> . crange
+    (15) arg -> . rinterval
+    (16) arg -> . grinterval
+    (7) kwarg -> . kwflag
+    (8) kwarg -> . kwflag arg
+    (22) number -> . INTEGER
+    (23) number -> . FLOAT
+    (17) crange -> . OPENRANGE number GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE
+    (18) crange -> . OPENRANGE number GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE
+    (19) crange -> . OPENRANGE number GROUPSPLITTER number CLOSERANGE
+    (21) rinterval -> . OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL
+    (20) grinterval -> . GOPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL
+    (9) kwflag -> . KWSIGN VNAME
+
+    $end            reduce using rule 1 (sentence -> VNAME .)
+    STRING          shift and go to state 7
+    INTEGER         shift and go to state 13
+    FLOAT           shift and go to state 14
+    OPENRANGE       shift and go to state 15
+    OPENINTERVAL    shift and go to state 16
+    GOPENINTERVAL   shift and go to state 17
+    KWSIGN          shift and go to state 18
+
+    args                           shift and go to state 3
+    kwargs                         shift and go to state 4
+    arg                            shift and go to state 5
+    kwarg                          shift and go to state 6
+    number                         shift and go to state 8
+    crange                         shift and go to state 9
+    rinterval                      shift and go to state 10
+    grinterval                     shift and go to state 11
+    kwflag                         shift and go to state 12
+
+state 3
+
+    (2) sentence -> VNAME args .
+    (4) sentence -> VNAME args . kwargs
+    (10) args -> args . arg
+    (5) kwargs -> . kwargs kwarg
+    (6) kwargs -> . kwarg
+    (12) arg -> . STRING
+    (13) arg -> . number
+    (14) arg -> . crange
+    (15) arg -> . rinterval
+    (16) arg -> . grinterval
+    (7) kwarg -> . kwflag
+    (8) kwarg -> . kwflag arg
+    (22) number -> . INTEGER
+    (23) number -> . FLOAT
+    (17) crange -> . OPENRANGE number GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE
+    (18) crange -> . OPENRANGE number GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE
+    (19) crange -> . OPENRANGE number GROUPSPLITTER number CLOSERANGE
+    (21) rinterval -> . OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL
+    (20) grinterval -> . GOPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL
+    (9) kwflag -> . KWSIGN VNAME
+
+    $end            reduce using rule 2 (sentence -> VNAME args .)
+    STRING          shift and go to state 7
+    INTEGER         shift and go to state 13
+    FLOAT           shift and go to state 14
+    OPENRANGE       shift and go to state 15
+    OPENINTERVAL    shift and go to state 16
+    GOPENINTERVAL   shift and go to state 17
+    KWSIGN          shift and go to state 18
+
+    kwargs                         shift and go to state 19
+    arg                            shift and go to state 20
+    kwarg                          shift and go to state 6
+    number                         shift and go to state 8
+    crange                         shift and go to state 9
+    rinterval                      shift and go to state 10
+    grinterval                     shift and go to state 11
+    kwflag                         shift and go to state 12
+
+state 4
+
+    (3) sentence -> VNAME kwargs .
+    (5) kwargs -> kwargs . kwarg
+    (7) kwarg -> . kwflag
+    (8) kwarg -> . kwflag arg
+    (9) kwflag -> . KWSIGN VNAME
+
+    $end            reduce using rule 3 (sentence -> VNAME kwargs .)
+    KWSIGN          shift and go to state 18
+
+    kwarg                          shift and go to state 21
+    kwflag                         shift and go to state 12
+
+state 5
+
+    (11) args -> arg .
+
+    STRING          reduce using rule 11 (args -> arg .)
+    INTEGER         reduce using rule 11 (args -> arg .)
+    FLOAT           reduce using rule 11 (args -> arg .)
+    OPENRANGE       reduce using rule 11 (args -> arg .)
+    OPENINTERVAL    reduce using rule 11 (args -> arg .)
+    GOPENINTERVAL   reduce using rule 11 (args -> arg .)
+    KWSIGN          reduce using rule 11 (args -> arg .)
+    $end            reduce using rule 11 (args -> arg .)
+
+
+state 6
+
+    (6) kwargs -> kwarg .
+
+    KWSIGN          reduce using rule 6 (kwargs -> kwarg .)
+    $end            reduce using rule 6 (kwargs -> kwarg .)
+
+
+state 7
+
+    (12) arg -> STRING .
+
+    STRING          reduce using rule 12 (arg -> STRING .)
+    INTEGER         reduce using rule 12 (arg -> STRING .)
+    FLOAT           reduce using rule 12 (arg -> STRING .)
+    OPENRANGE       reduce using rule 12 (arg -> STRING .)
+    OPENINTERVAL    reduce using rule 12 (arg -> STRING .)
+    GOPENINTERVAL   reduce using rule 12 (arg -> STRING .)
+    KWSIGN          reduce using rule 12 (arg -> STRING .)
+    $end            reduce using rule 12 (arg -> STRING .)
+
+
+state 8
+
+    (13) arg -> number .
+
+    STRING          reduce using rule 13 (arg -> number .)
+    INTEGER         reduce using rule 13 (arg -> number .)
+    FLOAT           reduce using rule 13 (arg -> number .)
+    OPENRANGE       reduce using rule 13 (arg -> number .)
+    OPENINTERVAL    reduce using rule 13 (arg -> number .)
+    GOPENINTERVAL   reduce using rule 13 (arg -> number .)
+    KWSIGN          reduce using rule 13 (arg -> number .)
+    $end            reduce using rule 13 (arg -> number .)
+
+
+state 9
+
+    (14) arg -> crange .
+
+    STRING          reduce using rule 14 (arg -> crange .)
+    INTEGER         reduce using rule 14 (arg -> crange .)
+    FLOAT           reduce using rule 14 (arg -> crange .)
+    OPENRANGE       reduce using rule 14 (arg -> crange .)
+    OPENINTERVAL    reduce using rule 14 (arg -> crange .)
+    GOPENINTERVAL   reduce using rule 14 (arg -> crange .)
+    KWSIGN          reduce using rule 14 (arg -> crange .)
+    $end            reduce using rule 14 (arg -> crange .)
+
+
+state 10
+
+    (15) arg -> rinterval .
+
+    STRING          reduce using rule 15 (arg -> rinterval .)
+    INTEGER         reduce using rule 15 (arg -> rinterval .)
+    FLOAT           reduce using rule 15 (arg -> rinterval .)
+    OPENRANGE       reduce using rule 15 (arg -> rinterval .)
+    OPENINTERVAL    reduce using rule 15 (arg -> rinterval .)
+    GOPENINTERVAL   reduce using rule 15 (arg -> rinterval .)
+    KWSIGN          reduce using rule 15 (arg -> rinterval .)
+    $end            reduce using rule 15 (arg -> rinterval .)
+
+
+state 11
+
+    (16) arg -> grinterval .
+
+    STRING          reduce using rule 16 (arg -> grinterval .)
+    INTEGER         reduce using rule 16 (arg -> grinterval .)
+    FLOAT           reduce using rule 16 (arg -> grinterval .)
+    OPENRANGE       reduce using rule 16 (arg -> grinterval .)
+    OPENINTERVAL    reduce using rule 16 (arg -> grinterval .)
+    GOPENINTERVAL   reduce using rule 16 (arg -> grinterval .)
+    KWSIGN          reduce using rule 16 (arg -> grinterval .)
+    $end            reduce using rule 16 (arg -> grinterval .)
+
+
+state 12
+
+    (7) kwarg -> kwflag .
+    (8) kwarg -> kwflag . arg
+    (12) arg -> . STRING
+    (13) arg -> . number
+    (14) arg -> . crange
+    (15) arg -> . rinterval
+    (16) arg -> . grinterval
+    (22) number -> . INTEGER
+    (23) number -> . FLOAT
+    (17) crange -> . OPENRANGE number GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE
+    (18) crange -> . OPENRANGE number GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE
+    (19) crange -> . OPENRANGE number GROUPSPLITTER number CLOSERANGE
+    (21) rinterval -> . OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL
+    (20) grinterval -> . GOPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL
+
+    KWSIGN          reduce using rule 7 (kwarg -> kwflag .)
+    $end            reduce using rule 7 (kwarg -> kwflag .)
+    STRING          shift and go to state 7
+    INTEGER         shift and go to state 13
+    FLOAT           shift and go to state 14
+    OPENRANGE       shift and go to state 15
+    OPENINTERVAL    shift and go to state 16
+    GOPENINTERVAL   shift and go to state 17
+
+    arg                            shift and go to state 22
+    number                         shift and go to state 8
+    crange                         shift and go to state 9
+    rinterval                      shift and go to state 10
+    grinterval                     shift and go to state 11
+
+state 13
+
+    (22) number -> INTEGER .
+
+    STRING          reduce using rule 22 (number -> INTEGER .)
+    INTEGER         reduce using rule 22 (number -> INTEGER .)
+    FLOAT           reduce using rule 22 (number -> INTEGER .)
+    OPENRANGE       reduce using rule 22 (number -> INTEGER .)
+    OPENINTERVAL    reduce using rule 22 (number -> INTEGER .)
+    GOPENINTERVAL   reduce using rule 22 (number -> INTEGER .)
+    KWSIGN          reduce using rule 22 (number -> INTEGER .)
+    $end            reduce using rule 22 (number -> INTEGER .)
+    GROUPSPLITTER   reduce using rule 22 (number -> INTEGER .)
+    CLOSERANGE      reduce using rule 22 (number -> INTEGER .)
+    CLOSEINTERVAL   reduce using rule 22 (number -> INTEGER .)
+
+
+state 14
+
+    (23) number -> FLOAT .
+
+    STRING          reduce using rule 23 (number -> FLOAT .)
+    INTEGER         reduce using rule 23 (number -> FLOAT .)
+    FLOAT           reduce using rule 23 (number -> FLOAT .)
+    OPENRANGE       reduce using rule 23 (number -> FLOAT .)
+    OPENINTERVAL    reduce using rule 23 (number -> FLOAT .)
+    GOPENINTERVAL   reduce using rule 23 (number -> FLOAT .)
+    KWSIGN          reduce using rule 23 (number -> FLOAT .)
+    $end            reduce using rule 23 (number -> FLOAT .)
+    GROUPSPLITTER   reduce using rule 23 (number -> FLOAT .)
+    CLOSERANGE      reduce using rule 23 (number -> FLOAT .)
+    CLOSEINTERVAL   reduce using rule 23 (number -> FLOAT .)
+
+
+state 15
+
+    (17) crange -> OPENRANGE . number GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE
+    (18) crange -> OPENRANGE . number GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE
+    (19) crange -> OPENRANGE . number GROUPSPLITTER number CLOSERANGE
+    (22) number -> . INTEGER
+    (23) number -> . FLOAT
+
+    INTEGER         shift and go to state 13
+    FLOAT           shift and go to state 14
+
+    number                         shift and go to state 23
+
+state 16
+
+    (21) rinterval -> OPENINTERVAL . number GROUPSPLITTER number CLOSEINTERVAL
+    (22) number -> . INTEGER
+    (23) number -> . FLOAT
+
+    INTEGER         shift and go to state 13
+    FLOAT           shift and go to state 14
+
+    number                         shift and go to state 24
+
+state 17
+
+    (20) grinterval -> GOPENINTERVAL . number GROUPSPLITTER number CLOSEINTERVAL
+    (22) number -> . INTEGER
+    (23) number -> . FLOAT
+
+    INTEGER         shift and go to state 13
+    FLOAT           shift and go to state 14
+
+    number                         shift and go to state 25
+
+state 18
+
+    (9) kwflag -> KWSIGN . VNAME
+
+    VNAME           shift and go to state 26
+
+
+state 19
+
+    (4) sentence -> VNAME args kwargs .
+    (5) kwargs -> kwargs . kwarg
+    (7) kwarg -> . kwflag
+    (8) kwarg -> . kwflag arg
+    (9) kwflag -> . KWSIGN VNAME
+
+    $end            reduce using rule 4 (sentence -> VNAME args kwargs .)
+    KWSIGN          shift and go to state 18
+
+    kwarg                          shift and go to state 21
+    kwflag                         shift and go to state 12
+
+state 20
+
+    (10) args -> args arg .
+
+    STRING          reduce using rule 10 (args -> args arg .)
+    INTEGER         reduce using rule 10 (args -> args arg .)
+    FLOAT           reduce using rule 10 (args -> args arg .)
+    OPENRANGE       reduce using rule 10 (args -> args arg .)
+    OPENINTERVAL    reduce using rule 10 (args -> args arg .)
+    GOPENINTERVAL   reduce using rule 10 (args -> args arg .)
+    KWSIGN          reduce using rule 10 (args -> args arg .)
+    $end            reduce using rule 10 (args -> args arg .)
+
+
+state 21
+
+    (5) kwargs -> kwargs kwarg .
+
+    KWSIGN          reduce using rule 5 (kwargs -> kwargs kwarg .)
+    $end            reduce using rule 5 (kwargs -> kwargs kwarg .)
+
+
+state 22
+
+    (8) kwarg -> kwflag arg .
+
+    KWSIGN          reduce using rule 8 (kwarg -> kwflag arg .)
+    $end            reduce using rule 8 (kwarg -> kwflag arg .)
+
+
+state 23
+
+    (17) crange -> OPENRANGE number . GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE
+    (18) crange -> OPENRANGE number . GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE
+    (19) crange -> OPENRANGE number . GROUPSPLITTER number CLOSERANGE
+
+    GROUPSPLITTER   shift and go to state 27
+
+
+state 24
+
+    (21) rinterval -> OPENINTERVAL number . GROUPSPLITTER number CLOSEINTERVAL
+
+    GROUPSPLITTER   shift and go to state 28
+
+
+state 25
+
+    (20) grinterval -> GOPENINTERVAL number . GROUPSPLITTER number CLOSEINTERVAL
+
+    GROUPSPLITTER   shift and go to state 29
+
+
+state 26
+
+    (9) kwflag -> KWSIGN VNAME .
+
+    STRING          reduce using rule 9 (kwflag -> KWSIGN VNAME .)
+    INTEGER         reduce using rule 9 (kwflag -> KWSIGN VNAME .)
+    FLOAT           reduce using rule 9 (kwflag -> KWSIGN VNAME .)
+    OPENRANGE       reduce using rule 9 (kwflag -> KWSIGN VNAME .)
+    OPENINTERVAL    reduce using rule 9 (kwflag -> KWSIGN VNAME .)
+    GOPENINTERVAL   reduce using rule 9 (kwflag -> KWSIGN VNAME .)
+    KWSIGN          reduce using rule 9 (kwflag -> KWSIGN VNAME .)
+    $end            reduce using rule 9 (kwflag -> KWSIGN VNAME .)
+
+
+state 27
+
+    (17) crange -> OPENRANGE number GROUPSPLITTER . number GROUPSPLITTER rinterval CLOSERANGE
+    (18) crange -> OPENRANGE number GROUPSPLITTER . number GROUPSPLITTER number CLOSERANGE
+    (19) crange -> OPENRANGE number GROUPSPLITTER . number CLOSERANGE
+    (22) number -> . INTEGER
+    (23) number -> . FLOAT
+
+    INTEGER         shift and go to state 13
+    FLOAT           shift and go to state 14
+
+    number                         shift and go to state 30
+
+state 28
+
+    (21) rinterval -> OPENINTERVAL number GROUPSPLITTER . number CLOSEINTERVAL
+    (22) number -> . INTEGER
+    (23) number -> . FLOAT
+
+    INTEGER         shift and go to state 13
+    FLOAT           shift and go to state 14
+
+    number                         shift and go to state 31
+
+state 29
+
+    (20) grinterval -> GOPENINTERVAL number GROUPSPLITTER . number CLOSEINTERVAL
+    (22) number -> . INTEGER
+    (23) number -> . FLOAT
+
+    INTEGER         shift and go to state 13
+    FLOAT           shift and go to state 14
+
+    number                         shift and go to state 32
+
+state 30
+
+    (17) crange -> OPENRANGE number GROUPSPLITTER number . GROUPSPLITTER rinterval CLOSERANGE
+    (18) crange -> OPENRANGE number GROUPSPLITTER number . GROUPSPLITTER number CLOSERANGE
+    (19) crange -> OPENRANGE number GROUPSPLITTER number . CLOSERANGE
+
+    GROUPSPLITTER   shift and go to state 33
+    CLOSERANGE      shift and go to state 34
+
+
+state 31
+
+    (21) rinterval -> OPENINTERVAL number GROUPSPLITTER number . CLOSEINTERVAL
+
+    CLOSEINTERVAL   shift and go to state 35
+
+
+state 32
+
+    (20) grinterval -> GOPENINTERVAL number GROUPSPLITTER number . CLOSEINTERVAL
+
+    CLOSEINTERVAL   shift and go to state 36
+
+
+state 33
+
+    (17) crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER . rinterval CLOSERANGE
+    (18) crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER . number CLOSERANGE
+    (21) rinterval -> . OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL
+    (22) number -> . INTEGER
+    (23) number -> . FLOAT
+
+    OPENINTERVAL    shift and go to state 16
+    INTEGER         shift and go to state 13
+    FLOAT           shift and go to state 14
+
+    number                         shift and go to state 37
+    rinterval                      shift and go to state 38
+
+state 34
+
+    (19) crange -> OPENRANGE number GROUPSPLITTER number CLOSERANGE .
+
+    STRING          reduce using rule 19 (crange -> OPENRANGE number GROUPSPLITTER number CLOSERANGE .)
+    INTEGER         reduce using rule 19 (crange -> OPENRANGE number GROUPSPLITTER number CLOSERANGE .)
+    FLOAT           reduce using rule 19 (crange -> OPENRANGE number GROUPSPLITTER number CLOSERANGE .)
+    OPENRANGE       reduce using rule 19 (crange -> OPENRANGE number GROUPSPLITTER number CLOSERANGE .)
+    OPENINTERVAL    reduce using rule 19 (crange -> OPENRANGE number GROUPSPLITTER number CLOSERANGE .)
+    GOPENINTERVAL   reduce using rule 19 (crange -> OPENRANGE number GROUPSPLITTER number CLOSERANGE .)
+    KWSIGN          reduce using rule 19 (crange -> OPENRANGE number GROUPSPLITTER number CLOSERANGE .)
+    $end            reduce using rule 19 (crange -> OPENRANGE number GROUPSPLITTER number CLOSERANGE .)
+
+
+state 35
+
+    (21) rinterval -> OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .
+
+    STRING          reduce using rule 21 (rinterval -> OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    INTEGER         reduce using rule 21 (rinterval -> OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    FLOAT           reduce using rule 21 (rinterval -> OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    OPENRANGE       reduce using rule 21 (rinterval -> OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    OPENINTERVAL    reduce using rule 21 (rinterval -> OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    GOPENINTERVAL   reduce using rule 21 (rinterval -> OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    KWSIGN          reduce using rule 21 (rinterval -> OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    $end            reduce using rule 21 (rinterval -> OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    CLOSERANGE      reduce using rule 21 (rinterval -> OPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+
+
+state 36
+
+    (20) grinterval -> GOPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .
+
+    STRING          reduce using rule 20 (grinterval -> GOPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    INTEGER         reduce using rule 20 (grinterval -> GOPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    FLOAT           reduce using rule 20 (grinterval -> GOPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    OPENRANGE       reduce using rule 20 (grinterval -> GOPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    OPENINTERVAL    reduce using rule 20 (grinterval -> GOPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    GOPENINTERVAL   reduce using rule 20 (grinterval -> GOPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    KWSIGN          reduce using rule 20 (grinterval -> GOPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+    $end            reduce using rule 20 (grinterval -> GOPENINTERVAL number GROUPSPLITTER number CLOSEINTERVAL .)
+
+
+state 37
+
+    (18) crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER number . CLOSERANGE
+
+    CLOSERANGE      shift and go to state 39
+
+
+state 38
+
+    (17) crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER rinterval . CLOSERANGE
+
+    CLOSERANGE      shift and go to state 40
+
+
+state 39
+
+    (18) crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE .
+
+    STRING          reduce using rule 18 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE .)
+    INTEGER         reduce using rule 18 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE .)
+    FLOAT           reduce using rule 18 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE .)
+    OPENRANGE       reduce using rule 18 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE .)
+    OPENINTERVAL    reduce using rule 18 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE .)
+    GOPENINTERVAL   reduce using rule 18 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE .)
+    KWSIGN          reduce using rule 18 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE .)
+    $end            reduce using rule 18 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER number CLOSERANGE .)
+
+
+state 40
+
+    (17) crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE .
+
+    STRING          reduce using rule 17 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE .)
+    INTEGER         reduce using rule 17 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE .)
+    FLOAT           reduce using rule 17 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE .)
+    OPENRANGE       reduce using rule 17 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE .)
+    OPENINTERVAL    reduce using rule 17 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE .)
+    GOPENINTERVAL   reduce using rule 17 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE .)
+    KWSIGN          reduce using rule 17 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE .)
+    $end            reduce using rule 17 (crange -> OPENRANGE number GROUPSPLITTER number GROUPSPLITTER rinterval CLOSERANGE .)
+

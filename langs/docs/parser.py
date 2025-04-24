@@ -1,5 +1,5 @@
 from ply import yacc
-from lex import (
+from langs.docs.lex import (
     delete_duplicate_ws,
     state_stack,
     param_assigns,

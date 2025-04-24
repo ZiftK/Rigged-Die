@@ -1,11 +1,11 @@
 
 # import the build function of the docs parser
-from docs.parser import build_parser as build_docs_parser
+from langs.docs.parser import build_parser as build_docs_parser
 # import the build function of the commands parser
-from commands.parser import build_parser as build_cmd_parser
+from langs.commands.parser import build_parser as build_cmd_parser
 
-from docs.lex import build_docs_lex
-from commands.lex import build_command_lex
+from langs.docs.lex import build_docs_lex
+from langs.commands.lex import build_command_lex
 
 # build parsers
 command_parser = build_cmd_parser()
